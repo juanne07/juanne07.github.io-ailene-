@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ailene's Dynamic Page</title>
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-...YOUR_HASH..." 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --text-color: #ffffff;
+            --main-color: #176378;
+            --accent-color: #1e3241;
+			--accent-color: #194960;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: url('image/totoro.jpg'); /* Update to use the uploaded image */
+			background-color: #18384a;
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+            color: var(--text-color);
+            line-height: 1.6;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background: var(--main-color);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+        }
+
+        header {
+            background: var(--main-color);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex; /* Aligns header items in a row */
+            align-items: center; /* Centers items vertically */
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex; /* Allows the logo and title to sit side by side */
+            align-items: center; /* Vertically aligns the logo and title */
+            gap: 1rem; /* Adds space between the logo and the title */
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 0.5px solid var(--main-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        header h3 {
+            margin: 0;
+            font-size: 1.5rem; /* Adjust font size if needed */
+            white-space: nowrap; /* Prevents the title from wrapping */
+            color: var(--text-color);
+        }
+footer {
+    position: relative;  /* Ensures footer is not fixed */
+    margin-top: auto;
+    padding: 1rem;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    width: 100%;
+    text-align: center;
+}
+
+footer.fixed {
+    position: fixed;  /* Footer fixed at the bottom of the viewport */
+    bottom: 0;
+    left: 0;
+    z-index: 1000;  /* Ensure it's above other content */
+    width: 100%;
+}
+
+
+        nav {
+            margin-left: auto; /* Push navigation links to the far right */
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero img, .content-box img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 1rem auto;
+        }
+
+        .hero h1 {
+            color: white; /* Set the text color to white */
+        }
+
+        .content-grid {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+			gap: 20px; /* Space between content boxes */
+			flex-wrap: wrap; /* Ensure items wrap if they don't fit in one row */
+        }
+
+        .content-box {
+    background: var(--accent-color); /* Retain the background color */
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1 1 calc(33% - 20px);
+    max-width: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff; /* Set text color explicitly to white */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-box h3,
+.content-box p {
+    color: #ffffff; /* Ensure headings and paragraphs are also white */
+}
+
+
+        h2, h3 {
+            color: var(--accent-color);
+        }
+
+        .page {
+            display: none;
+            padding: 6rem 2rem;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .social-btn {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background-color: var(--main-color);
+        }
+
+        /* Social Links Styling */
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center; /* Align icons in the center */
+        }
+
+        .social-icon {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--main-color);
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+      /* Profile Intro Container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-image: url('image/totoro_bg2.jpg'); /* Ensure the image path is correct */
+    padding: 2rem 2rem;
+    border-radius: 15px; /* Optional: Rounded corners for a modern look */
+    margin: 2rem auto; /* Adds space above and below */
+    width: 90%; /* Adjusts the width to avoid spanning full screen */
+    max-width: 1000px; /* Sets a maximum width for larger screens */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    position: relative; /* For overlay */
+}
+
+/* Optional: Add a dark overlay to improve text visibility */
+.profile-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with opacity */
+    border-radius: 15px; /* Matches the rounded corners */
+    z-index: 1; /* Places the overlay behind the content */
+}
+
+/* Content inside the profile container */
+.profile-content {
+    position: relative;
+    z-index: 2; /* Ensures the content stays on top of the overlay */
+}
+
+/* Profile Picture */
+.profile-container img.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color); /* Adds a border for emphasis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+}
+
+.profile-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.profile-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid var(--main-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    margin: 1rem auto;
+}
+
+        .content-box video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px; /* Optional */
+        }
+		
+		.video-container {
+    margin-top: 30px; /* Add extra space above the video container */
+    padding: 10px; /* Optional: Padding inside the video container */
+	}
+	
+	 /* PDF Zoom Effect */
+        iframe {
+            transition: transform 0.3s ease-in-out; /* Smooth transition */
+            transform: scale(1); /* Default scale */
+            width: 100%; /* Full width */
+            height: 600px; /* Fixed height for iframe */
+            border: none;
+        }
+
+        iframe:hover {
+            transform: scale(1.1); /* Zoom-in effect */
+        }
+		
+		iframe.clicked {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow when clicked */
+        }
+
+        /* Add hover shadow effect to images and iframes */
+			img:hover, iframe:hover {
+			box-shadow: 0 4px 15px rgba(34, 77, 109, 0.7); /* More prominent shadow on hover */
+			transform: scale(1.05); /* Slight zoom */
+		}
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <a href="#home" onclick="navigate('home')">
+            <img src="image/totoro_logo.gif" alt="Logo" class="logo-img">
+        </a>
+        <h3>Ailene's Page</h3>
+    </div>
+    <nav>
+        <a href="#home" onclick="navigate('home')">Home</a>
+        <a href="#blog" onclick="navigate('blog')">Blog</a>
+        <a href="#flex" onclick="navigate('flex')">Flex</a>
+    </nav>
+</header>
+
+<!-- Home Section -->
+<div id="home" class="page active">
+    <div id="profile-intro" class="profile-container">
+        <div class="profile-content">
+            <img src="image/shades.jpg" alt="Profile Picture" class="profile-pic">
+            <h2>About Me</h2>
+            <p>Hi! I'm Ailene Juanne Quizon. </p>
+			<p>Students of Bukidnon States University </p>
+            </p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/ailenejuanne.quizon" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/ailene.quiz" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@gengg..07" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+				<a href="mailto:ailenejuanneq@gmail.com" class="social-icon">
+					<i class="fa-solid fa-envelope"></i>
+				</a>
+            </div>
+        </div>
+    </div>
+    <h1>Kon'nichiwa!</h1>
+    <h1>Welcome to My Webpage!</h1>
+    <p>BSEMC-DAT-1B Student.</p>
+    <img src="image/sabangan2.0.jpg" alt="Profile Picture" class="profile-pic">
+    <div class="content-grid">
+        <div class="content-box">
+            <h3>About Me</h3>
+            <img src="image/shrek.jpeg" alt="About Me">
+            <p>I’m passionate about creativity in drawing, editing, and culinary arts. I love spending my free time drawing, editing videos, and experimenting with new recipes in the kitchen.</p>
+        </div>
+        <div class="content-box">
+            <h3>Hobbies</h3>
+            <img src="image/drawing 1.jpg" alt="Hobbies">
+            <p>I usually watch K-dramas or movies when it's raining. I love listening to music when I'm bored. I often draw random people.</p>
+        </div>
+        <div class="content-box">
+            <h3>Skills</h3>
+            <img src="image/skills.jpeg" alt="Skills">
+            <p>Cooking, editing, and creating memes.</p>
+        </div> 
+
+	  </div>
+		<div class="content-grid">
+            <div class="content-box">
+            <h3>How do I see Myself 8 years from now?</h3>
+            <video width="100%" loop controls>
+                <source src="video/Home page.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+	</div>	
+	
+</div>
+    <!-- Blog Section -->
+    <div id="blog" class="page">
+        <h1>Blog Entries</h1>
+        <div class="content-grid">
+            <div class="content-box">
+                <h3>Infographics</h3>
+                <img src="image/Infographics.jpg" alt="Infographics">
+            </div>
+            <div class="content-box">
+                <h3>Cybercrime Case Activity</h3>
+                <iframe src="Cybercrime_Quizon.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+			<div class="content-box">
+                <h3>HTML 1ST Activity</h3>
+                <img src="image/html1.png" alt="Cybercrime Case">
+                <img src="image/html2.png" alt="Cybercrime Case">
+            </div>
+            <div class="content-box">
+                <h3>Technology Trends Activity</h3>
+           <iframe src="Quadrumvirate-1_Quizon .pdf" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+            <div class="content-box">
+                <h3>Portfolio Wireframe Activity</h3>
+           <iframe src="Quizon_PortfolioWireframe.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+				<div class="content-box">
+					<h3>Lessons that I learned</h3>
+					<p>I enjoyed learning HTML and CSS in Introduction to Computing. HTML helped me build the structure of a webpage, while CSS allowed me to style it, making the design more appealing. It was fun to see how small changes in code could transform the layout and colors.
+
+The challenge came with applying CSS for positioning, margins, and responsiveness across different screens. It took a lot of trial and error to get the design right on both desktop and mobile. Despite the difficulty, this experience deepened my appreciation for the creativity in web design.</p>
+				</div>
+				<div class="content-box">
+					<h3>Lessons that I learned</h3>
+					<p>In Introduction to Computing, I learned about the fundamental components of a computer, such as the CPU, memory, and storage devices, and how they work together. I also explored how the operating system manages hardware and software resources to ensure smooth functionality.
+
+I then delved into algorithms and problem-solving, the history of computers, different types of software, and the importance of networking through the internet. Finally, I learned HTML and CSS, which taught me how to structure and style web pages. This course gave me a solid foundation in computing and introduced me to the basics of web development.</p>
+				</div>
+        </div>
+    </div> 
+	<footer>
+        <p>&copy; 2024 | Created by Ailene Juanne T. Quizon</p>
+    </footer>
+</div>
+
+    <!-- Flex Section -->
+    <div id="flex" class="page">
+        <h1>Flex Projects</h1>
+			<div class="content-grid">
+			<div class="content-box">
+                <h3>FAMILY</h3>
+                <img src="image/families.jpg" alt="Fam">
+				<img src="image/families1.jpg" alt="Fam">
+				<img src="image/myselff.jpg" alt="Fam">
+			 </div>
+			 <div class="content-box">
+                <h3>ARTS</h3>
+                <img src="image/artjams.jpg" alt="Art Jam">
+				<img src="image/paint.jpg" alt="Art Jam">
+				<img src="image/sketch.jpg" alt="Art Jam">
+            </div>
+				<div class="content-box">
+                <h3>PETS</h3>
+                <img src="image/pet3.jpg" alt="Pets">
+				<img src="image/pet2.jpg" alt="Pets">
+				<img src="image/pet1.jpg" alt="Pets">
+			 </div>
+			 <div class="content-box">
+                <h3>FLOWERS</h3>
+                <img src="image/craft1.jpg" alt="Pets">
+				<img src="image/craft2.jpg" alt="Pets">
+				<img src="image/craft3.jpg" alt="Pets">
+			 </div>
+			<div class="content-grid">
+				<div class="content-box">
+                <h3>BATCH 2k22-2k24</h3>
+                <img src="image/seniorhigh11&12.jpg" alt="Art Jam">
+				<img src="image/nikolatesla2.jpg" alt="Art Jam">
+				<img src="image/nikolatesla1.jpg" alt="Art Jam">
+            </div>
+				<div class="content-box">
+                <h3>DANCE</h3>
+                <img src="image/dance.jpg" alt="Field Demo">
+				<img src="image/hiphops1.jpg" alt="Hiphop">
+				<img src="image/hiphops.jpg" alt="Hiphop">
+            </div>
+				<div class="content-box">
+                <h3>EVENTS</h3>
+                <img src="image/xmas.jpg" alt="Field Demo">
+				<img src="image/vtines.jpg" alt="Hiphop">
+				<img src="image/swim.jpg" alt="Hiphop">
+            </div>
+				<div class="content-box">
+                <h3>IMMERSION</h3>
+                <img src="image/immersion2.jpg" alt="Immersion">
+				<img src="image/immersion3.jpg" alt="Immersion">
+				<img src="image/immersion1.jpg" alt="Immersion">
+            </div>
+			<div class="content-grid">
+				<div class="content-box">
+                <h3>COSPLAY</h3>
+                <img src="image/cosplay1.jpg" alt="Ready or Not">
+				<img src="image/cosplay2.jpg" alt="Cosplay">
+				<img src="image/cosplay3.jpg" alt="Cosplay">
+            </div>
+			<div class="content-box">
+				<h3>SUNSETS</h3>
+                <img src="image/sunset1.jpg" alt="Sunset">
+				<img src="image/sunset2.jpg" alt="Sunset">
+				<img src="image/sunset3.jpg" alt="Sunrise">
+            </div>
+			<div class="content-box">
+                <h3>EMC 1B</h3>
+                <img src="image/emc1b.jpg" alt="New Mates">
+				<img src="image/emc3.jpg" alt="New Mates">
+				<img src="image/emc2.jpg" alt="New Mates">
+            </div>
+			<div class="content-box">
+				<h3>MEMES</h3>
+                <img src="image/memer1.jpg" alt="Memes">
+				<img src="image/memer2.jpg" alt="Memes">
+				<img src="image/memer3.jpg" alt="Memes">
+			 </div>	
+			 <div class="content-grid">
+            <div class="content-box">
+                <h3>EDITX</h3>
+				<video autoplay muted loop controls>
+                    <source src="video/selos.mp4" type="video/mp4">
+                </video>            
+			</div>
+            <div class="content-box">
+                <h3>GRADUATION</h3>
+                <video autoplay muted loop controls>
+                    <source src="video/grads.mp4" type="video/mp4">
+                </video>
+				</div>
+			<div class="content-box">
+                <h3>MEMORIES</h3>
+                <video autoplay muted loop controls>
+                    <source src="video/nt video.mp4" type="video/mp4">
+                </video>
+				<video autoplay muted loop controls>
+                    <source src="video/swim.mp4" type="video/mp4">
+                </video>
+				</div>
+			 <div class="content-grid">
+            <div class="content-box">
+                <h3>Bouncing Ball</h3>
+				<video autoplay muted loop controls>
+                    <source src="video/T99_Quizon_Ball.mp4" type="video/mp4">
+                </video>            
+			</div>
+            <div class="content-box">
+                <h3>Walking Stickman</h3>
+                <video autoplay muted loop controls>
+                    <source src="video/T99_Quizon_Stickman1.mp4" type="video/mp4">
+                </video>
+			</div>
+			<div class="content-box">
+                <h3>ADVERTISEMENT</h3>
+                <video autoplay muted loop controls>
+                    <source src="video/Light.mp4" type="video/mp4">
+                </video>			
+        </div>
+    </div>
+	
+	<footer class="fixed">
+    <p>&copy; 2024 | Created by Ailene Juanne T. Quizon</p>
+</footer>
+
+
+</div>
+<script>
+    // Function to navigate between pages
+    function navigate(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active')); // Hide all pages
+        document.getElementById(pageId).classList.add('active'); // Show the clicked page
+        window.scrollTo(0, 0); // Scroll to the top
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const elements = document.querySelectorAll('img, iframe'); // Select all images and iframes
+
+        elements.forEach(element => {
+            // Smooth transition for shadow and scaling
+            element.style.transition = 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out';
+
+            // Add hover effect for shadow and slight zoom
+            element.addEventListener('mouseover', function () {
+                element.style.boxShadow = '0 4px 15px #219de4'; // Shadow effect
+                element.style.transform = 'scale(1.05)'; // Slight zoom effect
+            });
+
+            // Remove shadow and reset zoom on mouseout
+            element.addEventListener('mouseout', function () {
+                element.style.boxShadow = 'none'; // Remove shadow
+                element.style.transform = 'scale(1)'; // Reset scale
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>

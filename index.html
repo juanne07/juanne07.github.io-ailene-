@@ -88,23 +88,23 @@
             white-space: nowrap; /* Prevents the title from wrapping */
             color: var(--text-color);
         }
-footer {
-    position: relative;  /* Ensures footer is not fixed */
-    margin-top: auto;
-    padding: 1rem;
-    background-color: var(--main-color);
-    color: var(--text-color);
-    width: 100%;
-    text-align: center;
-}
+		footer {
+			position: relative;  /* Ensures footer is not fixed */
+			margin-top: auto;
+			padding: 1rem;
+			background-color: var(--main-color);
+			color: var(--text-color);
+			width: 100%;
+			text-align: center;
+		}
 
-footer.fixed {
-    position: fixed;  /* Footer fixed at the bottom of the viewport */
-    bottom: 0;
-    left: 0;
-    z-index: 1000;  /* Ensure it's above other content */
-    width: 100%;
-}
+		footer.fixed {
+			position: fixed;  /* Footer fixed at the bottom of the viewport */
+			bottom: 0;
+			left: 0;
+			z-index: 1000;  /* Ensure it's above other content */
+			width: 100%;
+		}
 
 
         nav {
@@ -144,30 +144,30 @@ footer.fixed {
         }
 
         .content-box {
-    background: var(--accent-color); /* Retain the background color */
-    padding: 10px;
-    border-radius: 5px;
-    flex: 1 1 calc(33% - 20px);
-    max-width: 300px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #ffffff; /* Set text color explicitly to white */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-  	
-	.content-box a {
-    display: inline-block; /* Ensure proper block display for alignment */
-    text-decoration: none; /* Remove underline */
-}
-	.content-box a:hover video {
-    transform: scale(1.05); /* Slight zoom on hover */
-    transition: transform 0.3s ease;
-}
+			background: var(--accent-color); /* Retain the background color */
+			padding: 10px;
+			border-radius: 5px;
+			flex: 1 1 calc(33% - 20px);
+			max-width: 300px;
+			margin-bottom: 20px;
+			text-align: center;
+			color: #ffffff; /* Set text color explicitly to white */
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+			
+		.content-box a {
+			display: inline-block; /* Ensure proper block display for alignment */
+			text-decoration: none; /* Remove underline */
+		}
+		.content-box a:hover video {
+			transform: scale(1.05); /* Slight zoom on hover */
+			transition: transform 0.3s ease;
+		}
 	    
-.content-box h3,
-.content-box p {
-    color: #ffffff; /* Ensure headings and paragraphs are also white */
-}
+		.content-box h3,
+		.content-box p {
+			color: #ffffff; /* Ensure headings and paragraphs are also white */
+		}
 
 
         h2, h3 {
@@ -225,72 +225,72 @@ footer.fixed {
             transform: scale(1.1); /* Slight zoom effect on hover */
         }
 
-      /* Profile Intro Container */
-.profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    background-image: url('totoro_bg2.jpg'); /* Ensure the image path is correct */
-    padding: 2rem 2rem;
-    border-radius: 15px; /* Optional: Rounded corners for a modern look */
-    margin: 2rem auto; /* Adds space above and below */
-    width: 90%; /* Adjusts the width to avoid spanning full screen */
-    max-width: 1000px; /* Sets a maximum width for larger screens */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
-    position: relative; /* For overlay */
-}
+		/* Profile Intro Container */
+		.profile-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			text-align: center;
+			background-image: url('totoro_bg2.jpg'); /* Ensure the image path is correct */
+			padding: 2rem 2rem;
+			border-radius: 15px; /* Optional: Rounded corners for a modern look */
+			margin: 2rem auto; /* Adds space above and below */
+			width: 90%; /* Adjusts the width to avoid spanning full screen */
+			max-width: 1000px; /* Sets a maximum width for larger screens */
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+			position: relative; /* For overlay */
+		}
 
-/* Optional: Add a dark overlay to improve text visibility */
-.profile-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with opacity */
-    border-radius: 15px; /* Matches the rounded corners */
-    z-index: 1; /* Places the overlay behind the content */
-}
+		/* Optional: Add a dark overlay to improve text visibility */
+		.profile-container::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with opacity */
+			border-radius: 15px; /* Matches the rounded corners */
+			z-index: 1; /* Places the overlay behind the content */
+		}
 
-/* Content inside the profile container */
-.profile-content {
-    position: relative;
-    z-index: 2; /* Ensures the content stays on top of the overlay */
-}
+		/* Content inside the profile container */
+		.profile-content {
+			position: relative;
+			z-index: 2; /* Ensures the content stays on top of the overlay */
+		}
 
-/* Profile Picture */
-.profile-container img.profile-pic {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    border: 5px solid var(--accent-color); /* Adds a border for emphasis */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    margin-bottom: 1rem;
-}
+		/* Profile Picture */
+		.profile-container img.profile-pic {
+			width: 250px;
+			height: 250px;
+			border-radius: 50%;
+			border: 5px solid var(--accent-color); /* Adds a border for emphasis */
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+			margin-bottom: 1rem;
+		}
 
-.profile-container h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
+		.profile-container h2 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+			color: var(--text-color);
+		}
 
-.profile-container p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
+		.profile-container p {
+			font-size: 1.1rem;
+			line-height: 1.6;
+		}
 
-.profile-pic {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 5px solid var(--main-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    object-fit: cover;
-    margin: 1rem auto;
-}
+		.profile-pic {
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			border: 5px solid var(--main-color);
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+			object-fit: cover;
+			margin: 1rem auto;
+		}
 
         .content-box video {
             max-width: 100%;
@@ -299,20 +299,20 @@ footer.fixed {
         }
 		
 		.video-container {
-    margin-top: 30px; /* Add extra space above the video container */
-    padding: 10px; /* Optional: Padding inside the video container */
-	}
+			margin-top: 30px; /* Add extra space above the video container */
+			padding: 10px; /* Optional: Padding inside the video container */
+			}
 
-.click-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent; /* Invisible but clickable */
-    z-index: 2;
-    cursor: pointer;
-}
+		.click-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: transparent; /* Invisible but clickable */
+			z-index: 2;
+			cursor: pointer;
+		}
 	
 	 /* PDF Zoom Effect */
         iframe {

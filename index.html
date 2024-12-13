@@ -63,6 +63,7 @@
             display: flex; /* Allows the logo and title to sit side by side */
             align-items: center; /* Vertically aligns the logo and title */
             gap: 1rem; /* Adds space between the logo and the title */
+	    text-decoration: none;
         }
 
         .logo-img {
@@ -72,6 +73,10 @@
             border: 0.5px solid var(--main-color);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
+
+	    .logo-container img {
+    cursor: pointer; /* Adds a pointer cursor to indicate it's clickable */
+}
 
         header h3 {
             margin: 0;
@@ -333,11 +338,11 @@ footer.fixed {
 </head>
 <body>
 <header>
-    <div class="logo-container">
-        <a href="#home" onclick="navigate('home')">
-            <img src="totoro_logo.gif" alt="Logo" class="logo-img">
-        </a>
-        <h3>Ailene's Page</h3>
+   <div class="logo-container">
+   	 <a href="index.html"> <!-- Add link to the homepage -->
+        <img src="your-logo-file.png" alt="Logo" class="logo-img">
+  	  </a>
+	  <h3>Ailene's Page</h3>
     </div>
     <nav>
         <a href="#home" onclick="navigate('home')">Home</a>

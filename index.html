@@ -314,12 +314,12 @@ footer.fixed {
 </head>
 <body>
 <header>
-    <div class="logo-container">
-        <a href="#home" onclick="navigate('home')">
-            <img src="totoro_logo.gif" alt="Logo" class="logo-img">
-        </a>
-        <h3>Ailene's Page</h3>
-    </div>
+	<div class="logo-container">
+    <a href="#home" onclick="navigate('home')">
+        <img src="totoro_logo.gif" alt="Logo" class="logo-img">
+    </a>
+	 <h3>Ailene's Page</h3
+</div>
     <nav>
         <a href="#home" onclick="navigate('home')">Home</a>
         <a href="#blog" onclick="navigate('blog')">Blog</a>
@@ -562,6 +562,16 @@ I then delved into algorithms and problem-solving, the history of computers, dif
         document.getElementById(pageId).classList.add('active'); // Show the clicked page
         window.scrollTo(0, 0); // Scroll to the top
     }
+
+	document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.querySelector('.logo-container a'); // Adjust selector to match your logo
+    if (logo) {
+        logo.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent any unwanted default behavior
+            navigate('home'); // Adjust 'home' to the ID of your homepage section
+        });
+    }
+});
 
     document.addEventListener('DOMContentLoaded', function () {
         const elements = document.querySelectorAll('img, iframe'); // Select all images and iframes

@@ -333,10 +333,9 @@ footer.fixed {
 </head>
 <body>
 <header>
-  <div class="logo-container">
-        <a href="#home" onclick="navigate('home')">
-            <img src="image/totoro_logo.gif" alt="Logo" class="logo-img">
-        </a>
+	<div class="logo-container">
+    <a href="./">
+        <img src="totoro_logo.gif" alt="Logo" class="logo-img">
         <h3>Ailene's Page</h3>
     </div>
     <nav>
@@ -645,8 +644,18 @@ I then delved into algorithms and problem-solving, the history of computers, dif
                 document.body.appendChild(modal);
             });
         });
+
+        // Ensure the logo redirects to the homepage
+        const logo = document.querySelector('.logo-container a'); // Adjust selector to match your logo's structure
+        if (logo) {
+            logo.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default popup behavior
+                window.location.href = './'; // Redirect to the homepage
+            });
+        }
     });
 </script>
+
 
 
 

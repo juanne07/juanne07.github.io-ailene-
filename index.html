@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +60,7 @@
             z-index: 1000;
         }
 
-      .logo-container {
+        .logo-container {
             display: flex; /* Allows the logo and title to sit side by side */
             align-items: center; /* Vertically aligns the logo and title */
             gap: 1rem; /* Adds space between the logo and the title */
@@ -72,7 +73,7 @@
             border: 0.5px solid var(--main-color);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-	    
+
         header h3 {
             margin: 0;
             font-size: 1.5rem; /* Adjust font size if needed */
@@ -145,16 +146,7 @@ footer.fixed {
     color: #ffffff; /* Set text color explicitly to white */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-  	
-	.content-box a {
-    display: inline-block; /* Ensure proper block display for alignment */
-    text-decoration: none; /* Remove underline */
-}
-	.content-box a:hover video {
-    transform: scale(1.05); /* Slight zoom on hover */
-    transition: transform 0.3s ease;
-}
-	    
+
 .content-box h3,
 .content-box p {
     color: #ffffff; /* Ensure headings and paragraphs are also white */
@@ -293,17 +285,6 @@ footer.fixed {
     margin-top: 30px; /* Add extra space above the video container */
     padding: 10px; /* Optional: Padding inside the video container */
 	}
-
-.click-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent; /* Invisible but clickable */
-    z-index: 2;
-    cursor: pointer;
-}
 	
 	 /* PDF Zoom Effect */
         iframe {
@@ -333,9 +314,10 @@ footer.fixed {
 </head>
 <body>
 <header>
-	<div class="logo-container">
-    <a href="./">
-        <img src="totoro_logo.gif" alt="Logo" class="logo-img">
+    <div class="logo-container">
+        <a href="#home" onclick="navigate('home')">
+            <img src="totoro_logo.gif" alt="Logo" class="logo-img">
+        </a>
         <h3>Ailene's Page</h3>
     </div>
     <nav>
@@ -550,34 +532,22 @@ I then delved into algorithms and problem-solving, the history of computers, dif
                     <source src="nt_video[1].mp4" type="video/mp4">
                 </video>
 				</div>
-				<div class="content-grid">
-    <!-- Bouncing Ball -->
-    <div class="content-box">
-        <h3>Bouncing Ball</h3>
-        <div class="video-container">
-            <a href="https://youtu.be/DokIqILeaXA" target="_blank">
-                <div class="click-overlay"></div>
-                <video autoplay muted loop controls>
+			 <div class="content-grid">
+            <div class="content-box">
+                <h3>Bouncing Ball</h3>
+				<video autoplay muted loop controls>
                     <source src="T99_Quizon_Ball.mp4" type="video/mp4">
-                </video>
-            </a>
-        </div>
-    </div>
-
-    <!-- Walking Stickman -->
-    <div class="content-box">
-        <h3>Walking Stickman</h3>
-        <div class="video-container">
-            <a href="https://youtu.be/PTN4-B3Sp4A" target="_blank">
-                <div class="click-overlay"></div>
+                </video>            
+			</div>
+            <div class="content-box">
+                <h3>Walking Stickman</h3>
                 <video autoplay muted loop controls>
                     <source src="T99_Quizon_Stickman1.mp4" type="video/mp4">
                 </video>
-            </a>
+			</div>		
         </div>
     </div>
-</div>
-
+	
 	<footer class="fixed">
     <p>&copy; 2024 | Created by Ailene Juanne T. Quizon</p>
 </footer>
@@ -644,18 +614,8 @@ I then delved into algorithms and problem-solving, the history of computers, dif
                 document.body.appendChild(modal);
             });
         });
-
-        // Ensure the logo redirects to the homepage
-        const logo = document.querySelector('.logo-container a'); // Adjust selector to match your logo's structure
-        if (logo) {
-            logo.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent the default popup behavior
-                window.location.href = './'; // Redirect to the homepage
-            });
-        }
     });
 </script>
-
 
 
 

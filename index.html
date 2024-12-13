@@ -27,10 +27,10 @@
 			--accent-color: #194960;
         }
 
-        body {
+         body {
             background-color: var(--bg-color);
-            background-image: url('image/totoro.jpg'); /* Update to use the uploaded image */
-			background-color: #18384a;
+            background-image: url('totoro.jpg'); /* Update to use the uploaded image */
+	    background-color: #18384a;
             background-size: cover; /* Ensures the image covers the entire background */
             background-position: center; /* Centers the image */
             background-attachment: fixed; /* Keeps the background fixed while scrolling */
@@ -593,6 +593,38 @@ I then delved into algorithms and problem-solving, the history of computers, dif
             element.addEventListener('mouseout', function () {
                 element.style.boxShadow = 'none'; // Remove shadow
                 element.style.transform = 'scale(1)'; // Reset scale
+            });
+
+            // Add click event to display image in a modal
+            element.addEventListener('click', function () {
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                modal.style.display = 'flex';
+                modal.style.justifyContent = 'center';
+                modal.style.alignItems = 'center';
+                modal.style.zIndex = '1000';
+
+                const modalImg = document.createElement('img');
+                modalImg.src = element.src; // Set the image source to the clicked image's source
+                modalImg.style.maxWidth = '90%';
+                modalImg.style.maxHeight = '90%';
+                modalImg.style.objectFit = 'contain';
+
+                // Append the image to the modal
+                modal.appendChild(modalImg);
+
+                // Close the modal when clicked
+                modal.addEventListener('click', function () {
+                    modal.remove(); // Remove the modal from the document
+                });
+
+                // Append the modal to the body
+                document.body.appendChild(modal);
             });
         });
     });

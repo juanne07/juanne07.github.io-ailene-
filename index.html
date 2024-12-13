@@ -588,7 +588,7 @@ I then delved into algorithms and problem-solving, the history of computers, dif
 
 
 </div>
-<<script>
+<script>
     // Function to navigate between pages
     function navigate(pageId) {
         const pages = document.querySelectorAll('.page');
@@ -602,7 +602,13 @@ I then delved into algorithms and problem-solving, the history of computers, dif
 
         elements.forEach(element => {
             // Skip the logo image (we don't want to trigger the modal on the logo click)
-            if (element.classList.contains('logo-img')) return;
+            if (element.classList.contains('logo-img')) {
+                // Make sure logo clicks just go to homepage
+                element.parentElement.addEventListener('click', function(event) {
+                    event.stopPropagation();  // Prevent modal from showing
+                });
+                return;  // Skip processing the logo
+            }
 
             // Smooth transition for shadow and scaling
             element.style.transition = 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out';

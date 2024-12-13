@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +27,10 @@
 			--accent-color: #194960;
         }
 
-         body {
+        body {
             background-color: var(--bg-color);
             background-image: url('totoro.jpg'); /* Update to use the uploaded image */
-	    background-color: #18384a;
+			background-color: #18384a;
             background-size: cover; /* Ensures the image covers the entire background */
             background-position: center; /* Centers the image */
             background-attachment: fixed; /* Keeps the background fixed while scrolling */
@@ -79,7 +80,6 @@
             white-space: nowrap; /* Prevents the title from wrapping */
             color: var(--text-color);
         }
-
 footer {
     position: relative;  /* Ensures footer is not fixed */
     margin-top: auto;
@@ -146,7 +146,16 @@ footer.fixed {
     color: #ffffff; /* Set text color explicitly to white */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+  	
+	.content-box a {
+    display: inline-block; /* Ensure proper block display for alignment */
+    text-decoration: none; /* Remove underline */
+}
+	.content-box a:hover video {
+    transform: scale(1.05); /* Slight zoom on hover */
+    transition: transform 0.3s ease;
+}
+	    
 .content-box h3,
 .content-box p {
     color: #ffffff; /* Ensure headings and paragraphs are also white */
@@ -285,6 +294,17 @@ footer.fixed {
     margin-top: 30px; /* Add extra space above the video container */
     padding: 10px; /* Optional: Padding inside the video container */
 	}
+
+.click-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Invisible but clickable */
+    z-index: 2;
+    cursor: pointer;
+}
 	
 	 /* PDF Zoom Effect */
         iframe {
@@ -315,7 +335,7 @@ footer.fixed {
 <body>
 <header>
     <div class="logo-container">
-        <a href="home" onclick="navigate('home')">
+        <a href="#home" onclick="navigate('home')">
             <img src="totoro_logo.gif" alt="Logo" class="logo-img">
         </a>
         <h3>Ailene's Page</h3>
@@ -332,6 +352,7 @@ footer.fixed {
     <div id="profile-intro" class="profile-container">
         <div class="profile-content">
             <img src="shades.jpg" alt="Profile Picture" class="profile-pic">
+            <h2>About Me</h2>
             <p>Hi! I'm Ailene Juanne Quizon. </p>
 			<p>Students of Bukidnon States University </p>
             </p>
@@ -371,13 +392,13 @@ footer.fixed {
             <img src="skills.jpeg" alt="Skills">
             <p>Cooking, editing, and creating memes.</p>
         </div> 
-	    
+
 	  </div>
 		<div class="content-grid">
             <div class="content-box">
             <h3>How do I see Myself 8 years from now?</h3>
             <video width="100%" loop controls>
-                <source src="Home page.mp4" type="video/mp4">
+                <source src="Home_page[1].mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -397,8 +418,8 @@ footer.fixed {
             <div class="content-box">
                 <h3>Cybercrime Case Activity</h3>
                 <iframe src="Cybercrime_Quizon.pdf" width="100%" height="600px" style="border: none;"></iframe>
-		 <p>The lesson taught me about the serious issue of cybersex trafficking, its devastating effects on victims, and the efforts taken by law enforcement to combat it. I learned the importance of international cooperation, public awareness, and stronger measures to prevent and address such crimes.</p>            
-	    </div>
+		 <p>The lesson taught me about the serious issue of cybersex trafficking, its devastating effects on victims, and the efforts taken by law enforcement to combat it. I learned the importance of international cooperation, public awareness, and stronger measures to prevent and address such crimes.</p>
+            </div>
 			<div class="content-box">
                 <h3>HTML 1ST Activity</h3>
                 <img src="html1.png" alt="Cybercrime Case">
@@ -407,14 +428,14 @@ footer.fixed {
             </div>
             <div class="content-box">
                 <h3>Technology Trends Activity</h3>
-          	 <iframe src="Quadrumvirate-1_Quizon .pdf" width="100%" height="600px" style="border: none;"></iframe>
+           <iframe src="Quadrumvirate-1_Quizon .pdf" width="100%" height="600px" style="border: none;"></iframe>
 		<p>This lesson taught me how AI, IoT, and cloud computing are revolutionizing industries by improving operational efficiency and enabling smarter systems. I also learned about the synergy between these technologies and the challenges they bring, such as ensuring security and ethical use, which are critical in adapting to technological advancements.</p>
-	    </div>
+            </div>
             <div class="content-box">
                 <h3>Portfolio Wireframe Activity</h3>
-          	 <iframe src="Quizon_PortfolioWireframe.pdf" width="100%" height="600px" style="border: none;"></iframe>
- 		<p>Designing this wireframe helped me understand how to visually present my personal brand and goals in a creative and organized way. I learned the value of simplicity and clarity in layout design to effectively communicate my skills, passions, and future aspirations to viewers.</p>           
-	    </div>
+           <iframe src="Quizon_PortfolioWireframe.pdf" width="100%" height="600px" style="border: none;"></iframe>
+		<p>Designing this wireframe helped me understand how to visually present my personal brand and goals in a creative and organized way. I learned the value of simplicity and clarity in layout design to effectively communicate my skills, passions, and future aspirations to viewers.</p>
+            </div>
 				<div class="content-box">
 					<h3>Lessons that I learned</h3>
 					<p>I enjoyed learning HTML and CSS in Introduction to Computing. HTML helped me build the structure of a webpage, while CSS allowed me to style it, making the design more appealing. It was fun to see how small changes in code could transform the layout and colors.
@@ -458,7 +479,7 @@ I then delved into algorithms and problem-solving, the history of computers, dif
 			 </div>
 			 <div class="content-box">
                 <h3>FLOWERS</h3>
-                <img src="image/craft1.jpg" alt="Pets">
+                <img src="craft1.jpg" alt="Pets">
 				<img src="craft2.jpg" alt="Pets">
 				<img src="craft3.jpg" alt="Pets">
 			 </div>
@@ -528,18 +549,16 @@ I then delved into algorithms and problem-solving, the history of computers, dif
 			<div class="content-box">
                 <h3>MEMORIES</h3>
                 <video autoplay muted loop controls>
-                    <source src="nt video[1].mp4" type="video/mp4">
-                </video>
-				<video autoplay muted loop controls>
-                    <source src="swim.mp4" type="video/mp4">
+                    <source src="nt_video[1].mp4" type="video/mp4">
                 </video>
 				</div>
-			<div class="content-grid">
+				<div class="content-grid">
     <!-- Bouncing Ball -->
     <div class="content-box">
         <h3>Bouncing Ball</h3>
         <div class="video-container">
             <a href="https://youtu.be/DokIqILeaXA" target="_blank">
+                <div class="click-overlay"></div>
                 <video autoplay muted loop controls>
                     <source src="video/T99_Quizon_Ball.mp4" type="video/mp4">
                 </video>
@@ -552,6 +571,7 @@ I then delved into algorithms and problem-solving, the history of computers, dif
         <h3>Walking Stickman</h3>
         <div class="video-container">
             <a href="https://youtu.be/PTN4-B3Sp4A" target="_blank">
+                <div class="click-overlay"></div>
                 <video autoplay muted loop controls>
                     <source src="video/T99_Quizon_Stickman1.mp4" type="video/mp4">
                 </video>
@@ -559,6 +579,7 @@ I then delved into algorithms and problem-solving, the history of computers, dif
         </div>
     </div>
 </div>
+
 	<footer class="fixed">
     <p>&copy; 2024 | Created by Ailene Juanne T. Quizon</p>
 </footer>
@@ -573,10 +594,10 @@ I then delved into algorithms and problem-solving, the history of computers, dif
         document.getElementById(pageId).classList.add('active'); // Show the clicked page
         window.scrollTo(0, 0); // Scroll to the top
     }
-	 function navigate(pageId) {
-        const pages = document.querySelectorAll('.page');
-        pages.forEach
-		 
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const elements = document.querySelectorAll('img, iframe'); // Select all images and iframes
+
         elements.forEach(element => {
             // Smooth transition for shadow and scaling
             element.style.transition = 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out';
@@ -627,6 +648,7 @@ I then delved into algorithms and problem-solving, the history of computers, dif
         });
     });
 </script>
+
 
 
 </body>

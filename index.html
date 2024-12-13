@@ -145,6 +145,17 @@ footer.fixed {
     color: #ffffff; /* Set text color explicitly to white */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+  	
+	.content-box a {
+    display: inline-block; /* Ensure proper block display for alignment */
+    text-decoration: none; /* Remove underline */
+}
+	.content-box a:hover video {
+    transform: scale(1.05); /* Slight zoom on hover */
+    transition: transform 0.3s ease;
+}
+
+	    
 
 .content-box h3,
 .content-box p {
@@ -531,19 +542,26 @@ I then delved into algorithms and problem-solving, the history of computers, dif
                     <source src="nt_video[1].mp4" type="video/mp4">
                 </video>
 				</div>
-			 <div class="content-grid">
-            <div class="content-box">
-                <h3>Bouncing Ball</h3>
+				 <div class="content-grid">
+			<!-- Bouncing Ball -->
+			<div class="content-box">
+			<h3>Bouncing Ball</h3>
+				<a href="https://youtu.be/DokIqILeaXA" target="_blank">
 				<video autoplay muted loop controls>
-                    <source src="T99_Quizon_Ball.mp4" type="video/mp4">
-                </video>            
-			</div>
-            <div class="content-box">
-                <h3>Walking Stickman</h3>
-                <video autoplay muted loop controls>
-                    <source src="T99_Quizon_Stickman1.mp4" type="video/mp4">
-                </video>
-			</div>		
+                <source src="video/T99_Quizon_Ball.mp4" type="video/mp4">
+            </video>
+        </a>
+    </div>
+
+    <!-- Walking Stickman -->
+			<div class="content-box">
+			<h3>Walking Stickman</h3>
+				<a href="https://youtu.be/PTN4-B3Sp4A" target="_blank">
+				<video autoplay muted loop controls>
+                <source src="video/T99_Quizon_Stickman1.mp4" type="video/mp4">
+            </video>
+        </a>
+    </div>				
         </div>
     </div>
 	

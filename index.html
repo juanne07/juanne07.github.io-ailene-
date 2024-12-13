@@ -355,7 +355,7 @@ footer.fixed {
     <h1>Kon'nichiwa!</h1>
     <h1>Welcome to My Webpage!</h1>
     <p>BSEMC-DAT-1B Student.</p>
-    <img src="totoropic.jpg" alt="Profile Picture" class="profile-pic">
+    <img src="sabangan2.0.jpg" alt="Profile Picture" class="profile-pic">
     <div class="content-grid">
         <div class="content-box">
             <h3>About Me</h3>
@@ -364,7 +364,7 @@ footer.fixed {
         </div>
         <div class="content-box">
             <h3>Hobbies</h3>
-            <img src="music.jpg" alt="Hobbies">
+            <img src="drawing 1.jpg" alt="Hobbies">
             <p>I usually watch K-dramas or movies when it's raining. I love listening to music when I'm bored. I often draw random people.</p>
         </div>
         <div class="content-box">
@@ -393,28 +393,23 @@ footer.fixed {
             <div class="content-box">
                 <h3>Infographics</h3>
                 <img src="Infographics.jpg" alt="Infographics">
-		 <p>I learned about the evolution of computers during the PC and VLSI era, from the powerful Cray supercomputers to everyday technologies like Windows 95 and CD-ROMs. These advancements revolutionized research, personal computing, and data processing, showcasing the impact of innovation on society.</p>
             </div>
             <div class="content-box">
                 <h3>Cybercrime Case Activity</h3>
                 <iframe src="Cybercrime_Quizon.pdf" width="100%" height="600px" style="border: none;"></iframe>
-		 <p>The lesson taught me about the serious issue of cybersex trafficking, its devastating effects on victims, and the efforts taken by law enforcement to combat it. I learned the importance of international cooperation, public awareness, and stronger measures to prevent and address such crimes.</p>
             </div>
 			<div class="content-box">
                 <h3>HTML 1ST Activity</h3>
                 <img src="html1.png" alt="Cybercrime Case">
                 <img src="html2.png" alt="Cybercrime Case">
-		<p>This lesson taught me the basics of HTML structure, such as using headings, paragraphs, lists, and tables to organize content. It emphasized how HTML helps build web pages and provides the foundation for styling with CSS in web design.</p>
             </div>
             <div class="content-box">
                 <h3>Technology Trends Activity</h3>
            <iframe src="Quadrumvirate-1_Quizon .pdf" width="100%" height="600px" style="border: none;"></iframe>
-		<p>This lesson taught me how AI, IoT, and cloud computing are revolutionizing industries by improving operational efficiency and enabling smarter systems. I also learned about the synergy between these technologies and the challenges they bring, such as ensuring security and ethical use, which are critical in adapting to technological advancements.</p>
             </div>
             <div class="content-box">
                 <h3>Portfolio Wireframe Activity</h3>
            <iframe src="Quizon_PortfolioWireframe.pdf" width="100%" height="600px" style="border: none;"></iframe>
-		<p>Designing this wireframe helped me understand how to visually present my personal brand and goals in a creative and organized way. I learned the value of simplicity and clarity in layout design to effectively communicate my skills, passions, and future aspirations to viewers.</p>
             </div>
 				<div class="content-box">
 					<h3>Lessons that I learned</h3>
@@ -581,42 +576,9 @@ I then delved into algorithms and problem-solving, the history of computers, dif
                 element.style.boxShadow = 'none'; // Remove shadow
                 element.style.transform = 'scale(1)'; // Reset scale
             });
-
-            // Add click event to display image in a modal
-            element.addEventListener('click', function () {
-                const modal = document.createElement('div');
-                modal.style.position = 'fixed';
-                modal.style.top = '0';
-                modal.style.left = '0';
-                modal.style.width = '100%';
-                modal.style.height = '100%';
-                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-                modal.style.display = 'flex';
-                modal.style.justifyContent = 'center';
-                modal.style.alignItems = 'center';
-                modal.style.zIndex = '1000';
-
-                const modalImg = document.createElement('img');
-                modalImg.src = element.src; // Set the image source to the clicked image's source
-                modalImg.style.maxWidth = '90%';
-                modalImg.style.maxHeight = '90%';
-                modalImg.style.objectFit = 'contain';
-
-                // Append the image to the modal
-                modal.appendChild(modalImg);
-
-                // Close the modal when clicked
-                modal.addEventListener('click', function () {
-                    modal.remove(); // Remove the modal from the document
-                });
-
-                // Append the modal to the body
-                document.body.appendChild(modal);
-            });
         });
     });
 </script>
-
 
 
 </body>
